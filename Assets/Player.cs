@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -17,6 +18,17 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        ProcessTranslation();
+        ProcessRotation();
+    }
+
+    private void ProcessRotation()
+    {
+        transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+    }
+
+    private void ProcessTranslation()
     {
         // left and right movement (horizontal) across the screen of the ship
         float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
